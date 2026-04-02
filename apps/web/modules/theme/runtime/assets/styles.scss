@@ -1,0 +1,85 @@
+:root {
+  --gray-light: #f4f3f6;
+  --gray: #e8e5eb;
+  --gray-dark: #b5b1bc;
+  --gray-super-dark: #928e9a;
+  --black: #151515;
+  --red: #d4001c;
+}
+
+html,
+body {
+  letter-spacing: -2%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  letter-spacing: -3%;
+  font-weight: 600;
+}
+
+h1,
+.h1 {
+  font-size: 36px;
+  line-height: 110%;
+
+  @screen md {
+    font-size: 44px;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 28px;
+  line-height: 120%;
+
+  @screen md {
+    font-size: 36px;
+  }
+}
+
+h3,
+.h3 {
+  font-size: 20px;
+  line-height: 130%;
+  @screen md {
+    font-size: 28px;
+  }
+}
+
+h4,
+.h4 {
+  font-size: 20px;
+  line-height: 140%;
+  @screen md {
+    font-size: 22px;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 18px;
+  line-height: 140%;
+  @screen md {
+    font-size: 20px;
+  }
+}
+
+h6,
+.h6 {
+  font-size: 18px;
+  line-height: 160%;
+  @screen md {
+    font-size: 18px;
+  }
+}

@@ -2,16 +2,39 @@ import sfTypography from '@storefront-ui/typography';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
+import colors from 'tailwindcss/colors';
+import { join } from 'node:path';
 
-const fontFamilyText = process.env.NUXT_PUBLIC_FONT || 'Red Hat Text';
+const fontFamilyText = process.env.NUXT_PUBLIC_FONT || 'Open Sans';
+const toPosixGlob = (path: string) => path.replace(/\\/g, '/');
+const cwd = process.cwd();
+const normalizedCwd = toPosixGlob(cwd);
+const isWebCwd = normalizedCwd.endsWith('/apps/web');
+const webRoot = isWebCwd ? cwd : join(cwd, 'apps', 'web');
+const repoRoot = isWebCwd ? join(cwd, '..', '..') : cwd;
 
 export default {
   presets: [tailwindConfig],
-  content: ['./**/*.vue', '../../node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
+  content: [
+    toPosixGlob(join(webRoot, 'app/**/*.vue')),
+    toPosixGlob(join(webRoot, 'modules/**/*.vue')),
+    toPosixGlob(join(webRoot, 'node_modules/@storefront-ui/vue/**/*.{js,mjs}')),
+    toPosixGlob(join(repoRoot, 'node_modules/@storefront-ui/vue/**/*.{js,mjs}')),
+  ],
   safelist: [
     {
       pattern: /^col-span-(1[0-2]|[1-9])$/,
     },
+    'bg-gray-light',
+    'bg-gray',
+    '!bg-gray-light',
+    '!bg-gray',
+    'text-black',
+    'text-red',
+    'hover:bg-gray-light',
+    'hover:bg-gray',
+    'focus-visible:text-black',
+    'active:text-black',
   ],
   theme: {
     extend: {
@@ -82,7 +105,6 @@ export default {
           'toc-selected': '#538AEA',
           'icon-hover': 'rgba(6, 38, 51, 0.08)',
         },
-
         header: {
           '50': 'rgb(var(--colors-2-header-50) / <alpha-value>)',
           '100': 'rgb(var(--colors-2-header-100) / <alpha-value>)',
@@ -96,6 +118,17 @@ export default {
           '900': 'rgb(var(--colors-2-header-900) / <alpha-value>)',
           '950': 'rgb(var(--colors-2-header-950) / <alpha-value>)',
         },
+
+        // Custom theme colors from styles.scss
+        'gray-light': 'var(--gray-light)',
+        gray: {
+          ...colors.gray,
+          DEFAULT: 'var(--gray)',
+        },
+        'gray-dark': 'var(--gray-dark)',
+        'gray-super-dark': 'var(--gray-super-dark)',
+        black: 'var(--black)',
+        red: 'var(--red)',
       },
       gridTemplateAreas: {
         'product-page': ['left-top right', 'left-bottom right'],

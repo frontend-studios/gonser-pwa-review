@@ -1,0 +1,358 @@
+{
+  "theme": {
+    "infoBar": {
+      "home": "Home",
+      "product": "Product Page",
+      "category": "Category Page",
+      "checkout": "Checkout",
+      "global": "Global"
+    },
+    "header": {
+      "contact": "Contact",
+      "faq": "FAQ",
+      "aboutUs": "About Us"
+    },
+    "footer": {
+      "contact": {
+        "headline": "Contact",
+        "name": "GONSER AG",
+        "street": "Galgenried 18",
+        "city": "6370 Stans",
+        "email": "info{'@'}gonser.ch"
+      },
+      "links": {
+        "headline": "Links",
+        "link1": {
+          "text": "About Us",
+          "url": "/link1"
+        },
+        "link2": {
+          "text": "FAQ",
+          "url": "/link2"
+        },
+        "link3": {
+          "text": "Contact",
+          "url": "/link3"
+        },
+        "link4": {
+          "text": "Newsletter",
+          "url": "/link4"
+        },
+        "link5": {
+          "text": "WhatsApp Newsletter",
+          "url": "/link5"
+        },
+        "link6": {
+          "text": "Ideas World",
+          "url": "/link6"
+        },
+        "link7": {
+          "text": "UGC",
+          "url": "/link7"
+        },
+        "link8": {
+          "text": "Safety Instructions",
+          "url": "/link8"
+        }
+      },
+      "legal": {
+        "headline": "Legal",
+        "link1": {
+          "text": "Terms & Conditions",
+          "url": "/"
+        },
+        "link2": {
+          "text": "Imprint",
+          "url": "/"
+        },
+        "link3": {
+          "text": "Privacy Policy",
+          "url": "/"
+        }
+      },
+      "awards": {
+        "headline": "Awards",
+        "award1": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/KundenChampion2025.png",
+          "alt": "Customer Champion 2025 - Excellent Customer Satisfaction"
+        },
+        "award2": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/BranchenChampion2025.png",
+          "alt": "Industry Champion 2025 - 1st Place Price/Performance"
+        }
+      },
+      "safety": {
+        "headline": "Safe Shopping",
+        "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/SicherEinkaufen.png",
+        "alt": "Safe Shopping"
+      },
+      "copyright": {
+        "disclaimer": "* Manufacturer's suggested retail price",
+        "text": "© 2026 GONSER AG. All rights reserved"
+      },
+      "payment": {
+        "headline": "Payment Methods",
+        "method1": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Visa.svg",
+          "alt": "Visa"
+        },
+        "method2": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/bank.svg",
+          "alt": "Banküberweisung"
+        },
+        "method3": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/PayPal.svg",
+          "alt": "PayPal"
+        },
+        "method4": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Twint.svg",
+          "alt": "Twint"
+        },
+        "method5": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Empty.svg",
+          "alt": "Empty"
+        },
+        "method6": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Empty.svg",
+          "alt": "Empty"
+        }
+      },
+      "socialmedia": {
+        "headline": "Social Media",
+        "platform1": {
+          "url": "https://www.linkedin.com/company/gonser-ag/",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/LinkedIn.svg",
+          "alt": "LinkedIn"
+        },
+        "platform2": {
+          "url": "https://www.facebook.com/gonser.ch",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Facebook.svg",
+          "alt": "Facebook"
+        },
+        "platform3": {
+          "url": "https://www.instagram.com/gonser.ch/",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Instagram.svg",
+          "alt": "Instagram"
+        },
+        "platform4": {
+          "url": "https://www.gonser.ch/about/whatsapp-newsletter/",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/WhatsApp.svg",
+          "alt": "WhatsApp Newsletter"
+        },
+        "platform5": {
+          "url": "https://www.tiktok.com/{'@'}gonser.ch?lang=de-DE",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/TikTok.svg",
+          "alt": "TikTok"
+        }
+      }
+    },
+
+    "availability": {
+      "iconGreen": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Availability/Icon-green.svg",
+      "iconRed": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Availability/Icon-red.svg",
+      "iconOrange": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Availability/Icon-orange.svg"
+    },
+    "GonserBox": {
+      "infoText1": "Shipping costs only apply to GONSERBOX items.",
+      "infoText2": "From CHF 35.00 we ship them free of charge.",
+      "imageUrl": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/gonserbox.png",
+      "imageAlt": "GONSERBOX Shipping Package",
+      "boxIconUrl": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Box-artikel.svg",
+      "boxIconTooltip": "Box Item",
+      "remainingPrefix": "Only",
+      "remainingSuffix": "until free shipping",
+      "freeShipping": "🎉 Free shipping!",
+      "shippingInfo": "Shipping Cost Information",
+      "reached": "✓ Reached!",
+      "button1": {
+        "text": "Show all items",
+        "url": "/box-artikel/"
+      },
+      "button2": {
+        "text": "More info",
+        "url": "#"
+      },
+      "modal": {
+        "intro": "We deliver all products ordered directly through our webshop free of charge within Switzerland and the Principality of Liechtenstein.",
+        "imageUrl": "https://cdn10.plentymarkets.com/mrt54q44tptl/frontend/Gonser/Gonser_Box_klein.webp",
+        "imageAlt": "GONSERBOX Shipping Package",
+        "exception": "The only exception are small products marked as 'GONSERBOX' items. In order to offer you the best possible prices for these items too, we charge a shipping cost share of CHF 6.90 for GONSERBOX items. As soon as the sum of all GONSERBOX items reaches CHF 35.00, you will also receive these items free of charge!",
+        "orderInfo": "Your order will be shipped as quickly as possible after payment is received or directly if purchased on invoice. Invoice shipping is only available under certain conditions. Delivery takes place within the delivery times stated in the webshop.",
+        "shippingPartners": "Delivery is usually made with our parcel service providers Planzer and DHL. General cargo is delivered by one of our forwarding companies. The forwarding company generally delivers to the curb of the respective delivery address.",
+        "noAbroad": "Unfortunately, delivery abroad is not possible."
+      }
+    },
+    "ProductPage": {
+      "saving": "Save {percentage}%",
+      "color": "Color:",
+      "variant": "Variant:",
+      "outOfStock": "Out of Stock",
+      "description": "Description",
+      "articleNumber": "Article No",
+      "showMore": "SHOW MORE",
+      "showLess": "SHOW LESS",
+      "relatedProducts": "Accessories",
+      "similarProducts": "Similar Items",
+      "replacementParts": "Spare Parts",
+      "insteadOfRRP": "instead of RRP",
+      "availabilityModal": {
+        "headline": "Shipping Costs",
+        "intro": "We deliver all products ordered directly through our webshop free of charge within Switzerland and the Principality of Liechtenstein.",
+        "exception": "The only exception are small products marked as 'GONSERBOX' items. In order to offer you the best possible prices for these items too, we charge a shipping cost share of CHF 6.90 for GONSERBOX items. As soon as the sum of all GONSERBOX items reaches CHF 35.00, you will also receive these items free of charge!",
+        "orderInfo": "Your order will be shipped as quickly as possible according to the delivery times stated in the webshop after payment has been received. Unfortunately, invoice shipping is not possible.",
+        "shippingPartners": "Delivery is usually made with our parcel service providers Planzer and DHL. General cargo is delivered by one of our forwarding companies. The forwarding company generally delivers to the curb of the respective delivery address.",
+        "noAbroad": "Unfortunately, delivery abroad is not possible."
+      },
+      "specialUsp": {
+        "usp": {
+          "text": "Ordered today, delivered tomorrow!",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/order.svg"
+        }
+      },
+      "usps": {
+        "usp1": {
+          "text": "Lowest Price Guarantee",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/thumbs.svg"
+        },
+        "usp2": {
+          "text": "100 Days Return Policy",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/refresh.svg"
+        },
+        "usp3": {
+          "text": "Free Shipping from CHF 35",
+          "shortText": "Free Shipping",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/delivery.svg"
+        },
+        "usp4": {
+          "text": "",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/order.svg"
+        },
+        "usp5": {
+          "text": "Fast Shipping from Swiss Warehouse",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/switzerland.svg"
+        }
+      }
+    },
+    "recentlyViewed": {
+      "headline": "Recently Viewed",
+      "empty": "No products viewed yet",
+      "scrollLeft": "Scroll left",
+      "scrollRight": "Scroll right"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "showMore": "Show more categories"
+    },
+    "ContactPage": {
+      "name": "Contact Form",
+      "intro": {
+        "paragraph1": "Do you have a question or concern? Then get in touch with us.",
+        "paragraph2": "Simply fill out the form and we will process your inquiry as quickly as possible.",
+        "paragraph3": "For general questions, you can find",
+        "faqLink": "here",
+        "faqUrl": "/gonser/faq",
+        "paragraph3End": "our FAQs."
+      },
+      "fields": {
+        "name": "Name *",
+        "email": "Email Address *",
+        "message": "Message *",
+        "orderId": "Order ID",
+        "itemId": "Item ID",
+        "link": "Link"
+      },
+      "subjectHeadline": "What is it about? *",
+      "accordions": {
+        "order": "About an order",
+        "item": "About an item",
+        "other": "About another inquiry"
+      },
+      "fileUpload": {
+        "headline": "Upload Files",
+        "description": "You are welcome to add files (max. 5) to your message. Photos of the item / packaging make it easier for us to process complaints, for example.",
+        "selectButton": "Select Files",
+        "maxFilesError": "You can upload a maximum of 5 files."
+      },
+      "validation": {
+        "selectReason": "Please select a reason."
+      },
+      "submitButton": "Submit",
+      "orderOptions": {
+        "payment": {
+          "label": "Payment inquiry",
+          "value": "Your payment inquiry",
+          "description": "As soon as we receive your payment, the order will be shipped as quickly as possible. A bank or postal transfer can take 1-3 business days. Have you already paid but not yet received a shipping confirmation? We are happy to check the status of your order. With the help of your payment receipt, we can quickly verify the payment - thank you for your cooperation!"
+        },
+        "delivery": {
+          "label": "Delivery inquiry",
+          "value": "Your delivery inquiry for the order",
+          "description": "After payment is received, the order will be shipped as quickly as possible. You can find the corresponding delivery time for your item in the order confirmation or on the item page in the webshop. As soon as the order is shipped, you will receive a shipping confirmation by email. It may be worth checking the spam folder of your mailbox. Delivery takes place from Monday to Friday."
+        },
+        "address": {
+          "label": "Address change",
+          "value": "Your address change",
+          "description": "We are happy to consider address changes before payment is received. To avoid any questions, we appreciate a complete address including email address and phone number. Deliveries to PO boxes or pick-up addresses are unfortunately not possible."
+        },
+        "cancel": {
+          "label": "I would like to cancel the order",
+          "value": "Your cancellation request",
+          "description": "In general, orders can be cancelled as long as they have not yet been shipped. We appreciate it if you provide us with the order number / Order ID of the affected order. We will review and respond to your inquiry as quickly as possible."
+        },
+        "defect": {
+          "label": "Report defect / defects",
+          "value": "Your complaint",
+          "description": "Was your order delivered defective? We are very sorry about that. Please feel free to contact us and send us photos or a short video. Of course, we would then like to find a suitable solution for you. In case of transport damage, we appreciate it if you could also send us photos of the damaged packaging and the address label. Thank you for your cooperation!"
+        },
+        "wrongDelivery": {
+          "label": "Report wrong delivery",
+          "value": "Your report of a wrong delivery",
+          "description": "Did you receive a different item than you ordered? We are very sorry about that. Please send us photos of the address label and the box marking so that we can immediately check and correct this incorrect delivery. Thank you for your report."
+        },
+        "other": {
+          "label": "Other concern regarding the order",
+          "value": "Your concern regarding the order",
+          "description": "We are happy to receive your concern, wishes, questions or constructive criticism. We look forward to hearing from you."
+        }
+      },
+      "itemOptions": {
+        "question": {
+          "label": "Questions about an item",
+          "value": "Your inquiry about an item",
+          "description": "We are happy to receive your inquiry. Which item are you interested in? Please let us know the item number or send us the link to the offer so we can clarify your questions. We look forward to hearing from you."
+        },
+        "delivery": {
+          "label": "Delivery inquiry",
+          "value": "Your inquiry about the delivery of an item",
+          "description": "We have our items delivered by our parcel service providers Planzer and DHL. Depending on weight and size, delivery is made by a forwarding company of our trust. Unfortunately, we cannot offer pickup. We are happy to answer any further questions and look forward to hearing from you."
+        },
+        "availability": {
+          "label": "Availability inquiry",
+          "value": "Your inquiry about the availability of an item",
+          "description": "In general, the delivery times stated on the item page apply. You are also welcome to use our notification service if an item is out of stock and currently not available. We are happy to answer any further questions. If you send us the item number or the link to the offer, we can respond to your inquiry more quickly. We look forward to hearing from you."
+        }
+      },
+      "otherOptions": {
+        "general": {
+          "label": "General question",
+          "value": "Your inquiry to us",
+          "description": "Would you like to contact our customer service? We look forward to your inquiry."
+        },
+        "sponsoring": {
+          "label": "Sponsoring & donations inquiry",
+          "value": "Your sponsoring and / or donation inquiry",
+          "description": "Are you looking for a sponsor or collecting (material) donations? We look forward to your inquiry."
+        },
+        "reseller": {
+          "label": "Reseller inquiry",
+          "value": "Your inquiry as a reseller",
+          "description": "We supply some resellers and can offer drop-shipping directly to your customers."
+        },
+        "press": {
+          "label": "Press and media inquiry",
+          "value": "Your press or media inquiry",
+          "description": "Would you like to contact Gonser AG? We look forward to your inquiry."
+        }
+      }
+    }
+  }
+}
