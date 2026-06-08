@@ -75,8 +75,8 @@ export const useCheckoutPagePaymentAndShipping = () => {
   const handlePaymentMethodUpdate = async (paymentMethodId: number) => {
     if (cart.value.methodOfPaymentId === paymentMethodId) return;
     await savePaymentMethod(paymentMethodId);
-    await getShippingMethods();
-    await fetchSession();
+    // Keine Session-Aktualisierung nötig - savePaymentMethod macht den API-Call
+    // und aktualisiert bereits cart.value.methodOfPaymentId
   };
 
   const validateShippingTerms = () => {

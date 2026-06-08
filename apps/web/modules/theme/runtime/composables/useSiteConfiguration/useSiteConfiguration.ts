@@ -1,0 +1,147 @@
+import type {
+  UseSiteConfigurationReturn,
+  UseSiteConfigurationState,
+  LoadGoogleFont,
+  DrawerView,
+  SettingsType,
+  SetActiveSetting,
+} from '~/composables/useSiteConfiguration/types';
+import type { Block, CategoryTreeItem } from '@plentymarkets/shop-api';
+
+/**
+ * @description Composable for managing site configuration.
+ * @returns UseSiteConfigurationReturn
+ * @example
+ * ``` ts
+ * const { data, drawerOpen, loading, currentFont, drawerView, settingsIsDirty, saveSettings } = UseSiteConfiguration();
+ * ```
+ */
+export const useSiteConfiguration: UseSiteConfigurationReturn = () => {
+  const { isEditingEnabled } = useEditor();
+  const { scheduleCleanDataSync } = useBlocks();
+  const { clearStack } = useBlockEditStack();
+  const { clearEditTitle } = useBlockEditTitle();
+
+  const state = useState<UseSiteConfigurationState>('siteConfiguration', () => ({
+    data: [],
+    siteConfigurationDrawerOpen: false,
+    blocksConfigurationDrawerOpen: false,
+    pageModalOpen: false,
+    settingsCategory: null,
+    settingsType: null,
+    loading: false,
+    newBlockPosition: 0,
+    currentFont: useRuntimeConfig().public.font,
+    siteConfigurationDrawerView: null,
+    blocksConfigurationDrawerView: null,
+    activeSetting: '',
+    activeSubCategory: '',
+    blockType: '',
+    blockUuid: '',
+  }));
+
+  /**
+   * @description Function for loading a google font.
+   * @return LoadGoogleFont
+   * @example
+   * ``` ts
+   * loadGoogleFont('Jersey 10');
+   * ```
+   */
+  const loadGoogleFont: LoadGoogleFont = (fontName: string) => {
+    const link = document.createElement('link');
+
+    link.href = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(fontName)}:wght@400;500;600;700&display=swap`;
+    link.rel = 'stylesheet';
+
+    document.head.appendChild(link);
+
+    state.value.currentFont = `font-family: '${fontName}'`;
+  };
+
+  const openDrawerWithView = (view: DrawerView, block?: Block) => {
+    if (view === 'blocksSettings' && block && !isEditingEnabled.value) {
+      scheduleCleanDataSync();
+    }
+
+    if (block) {
+      state.value.blockType = block.name;
+      state.value.blockUuid = block.meta.uuid;
+
+      if (view === 'blocksSettings') {
+        const selectedUuid = useState<string | null>('toc-selected-uuid');
+        selectedUuid.value = block.meta.uuid;
+      }
+    }
+
+    if (view === 'blocksSettings') {
+      state.value.blocksConfigurationDrawerView = view;
+      state.value.blocksConfigurationDrawerOpen = true;
+    } else {
+      state.value.siteConfigurationDrawerView = view;
+      state.value.siteConfigurationDrawerOpen = true;
+      state.value.activeSetting = '';
+    }
+  };
+
+  const closeDrawer = () => {
+    state.value.siteConfigurationDrawerOpen = false;
+    state.value.blocksConfigurationDrawerOpen = false;
+    state.value.siteConfigurationDrawerView = null;
+    state.value.blocksConfigurationDrawerView = null;
+    state.value.activeSetting = '';
+    clearStack();
+    clearEditTitle();
+  };
+
+  const closeSiteConfigurationDrawer = () => {
+    state.value.siteConfigurationDrawerOpen = false;
+    state.value.siteConfigurationDrawerView = null;
+    state.value.activeSetting = '';
+  };
+
+  const closeBlocksConfigurationDrawer = () => {
+    state.value.blocksConfigurationDrawerOpen = false;
+    state.value.blocksConfigurationDrawerView = null;
+    clearStack();
+    clearEditTitle();
+  };
+
+  const updateNewBlockPosition = (position: number) => {
+    state.value.newBlockPosition = position;
+  };
+
+  const togglePageModal = (value: boolean) => {
+    state.value.pageModalOpen = value;
+  };
+
+  const setSettingsCategory = (category: CategoryTreeItem | null, settingsType?: SettingsType) => {
+    state.value.settingsType = settingsType || null;
+    state.value.settingsCategory = category;
+  };
+
+  const setActiveSubCategory = (subCategory: string) => {
+    state.value.activeSubCategory = subCategory;
+  };
+
+  const setActiveSetting: SetActiveSetting = (setting: string) => {
+    state.value.activeSubCategory = '';
+    state.value.activeSetting = setting;
+    state.value.siteConfigurationDrawerOpen = true;
+    state.value.siteConfigurationDrawerView = null;
+  };
+
+  return {
+    ...toRefs(state.value),
+    updateNewBlockPosition,
+    loadGoogleFont,
+    openDrawerWithView,
+    closeDrawer,
+    closeSiteConfigurationDrawer,
+    closeBlocksConfigurationDrawer,
+    togglePageModal,
+    setSettingsCategory,
+    setActiveSubCategory,
+    setActiveSetting,
+  };
+};

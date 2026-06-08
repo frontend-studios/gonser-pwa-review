@@ -1,5 +1,19 @@
 # PlentyONE Shop PWA - AI Coding Instructions
 
+## Agent Change Log Protocol
+
+- Shared log file: `.github/agent-changelog.md`
+- At the start of each task, read the latest entries from `.github/agent-changelog.md`.
+- At the end of each task that changes behavior, architecture, configuration, dependencies, or tooling, append a concise entry.
+- Keep entries focused on major changes only (no minor formatting-only edits).
+- Entry format:
+  - `## YYYY-MM-DD`
+  - `- Scope: <area/module>`
+  - `- Change: <what changed>`
+  - `- Impact: <user/dev impact>`
+  - `- Files: <key paths>`
+  - `- Follow-up: <optional next step>`
+
 ## Architecture Overview
 
 This is a **Turborepo monorepo** with two main apps:
@@ -34,12 +48,18 @@ npm run lint:fix     # Auto-fix linting issues
 
 ## Key Patterns & Conventions
 
+## Module Override Rule
+
+- Never modify files outside `apps/web/modules/**`.
+- If a change is needed in app/core files (e.g. `layouts/default.vue`, `app/components/**`), implement it via module overrides in `apps/web/modules/**` and register the override in the module setup.
+
 ### Component Architecture
 
 - **Atomic design**: Components in logical folders (`AddressForm/`, `ProductAccordion/`)
 - **Composition API**: All components use `<script setup>` with TypeScript
 - **Props typing**: Define interfaces in `types.ts` files alongside components
 - **StorefrontUI**: Uses SFUI components with TailwindCSS styling
+- **Tailwind-first styling**: Prefer Tailwind utility classes for styling changes in templates/components. Use scoped/global CSS only when Tailwind cannot express the requirement clearly (e.g., pseudo-elements, complex selectors, third-party markup constraints).
 - **Dynamic blocks**: `components/blocks/` contains CMS-like content blocks (Image, TextCard, etc.) loaded via `utils/blocks-imports.ts`
 - **Settings system**: `components/settings/` contains admin configuration components dynamically imported via `utils/settings-groups-imports.ts` and `utils/triggers-imports.ts`
 

@@ -1,0 +1,327 @@
+<template>
+  <component
+    :is="component.componentName"
+    v-for="(component, index) in filteredComponents"
+    :key="index"
+    :payment-key="paymentKey"
+    :disabled="disableBuyButton"
+    @click="validateOnClickComponents($event, component)"
+  />
+  <div v-if="filteredComponents.length === 0">
+    <div v-if="selectedPaymentId === paypalPaymentId">
+      <PayPalExpressButton
+        :disabled="disableBuyButton"
+        type="Checkout"
+        location="checkoutPage"
+        @validation-callback="handlePreparePaymentPayPal"
+      />
+      <PayPalPayLaterBanner
+        placement="payment"
+        location="checkoutPage"
+        :amount="cartGetters.getTotal(cartGetters.getTotals(cart))"
+        :commit="true"
+      />
+    </div>
+    <PayPalCreditCardBuyButton
+      v-else-if="selectedPaymentId === paypalCreditCardPaymentId"
+      :disabled="disableBuyButton || paypalCardDialog"
+      @click="openPayPalCardDialog"
+    />
+    <ApplePayButton
+      v-else-if="selectedPaymentId === paypalApplePayPaymentId"
+      :style="disableBuyButton ? 'pointer-events: none;' : ''"
+      @button-clicked="handlePreparePaymentPayPal"
+    />
+    <GooglePayButton
+      v-else-if="selectedPaymentId === paypalGooglePayPaymentId"
+      :style="disableBuyButton ? 'pointer-events: none;' : ''"
+      @button-clicked="handlePreparePaymentPayPal"
+    />
+    <PayPalAPM v-else-if="PayPalIsAPM" :disabled="disableBuyButton" @validation-callback="handlePreparePaymentPayPal" />
+
+    <button
+      v-else
+      type="submit"
+      :disabled="disableBuyButton"
+      data-testid="place-order-button"
+      class="inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed py-3 leading-6 px-6 gap-3 text-white shadow hover:shadow-md active:shadow bg-green-600 hover:bg-green-700 active:bg-green-700 w-full mb-4 @md:mb-0"
+      @click="handlePreparePayment"
+    >
+      <SfLoaderCircular
+        v-if="createOrderLoading || additionalInformationLoading"
+        class="flex justify-center items-center"
+        size="sm"
+      />
+      <template v-else>{{ t('checkout.orderNow') }}</template>
+    </button>
+  </div>
+
+  <Teleport to="body">
+    <UiModal
+      v-if="payPalPayUponInvoice"
+      v-model="payPalPayUponInvoice"
+      class="h-full w-full @md:w-[600px] @md:h-fit"
+      tag="section"
+      disable-click-away
+    >
+      <PayPalPayUponInvoiceForm @confirm-cancel="handlePayUponInvoiceModalClosing" />
+    </UiModal>
+    <UiModal
+      v-if="paypalCardDialog"
+      v-model="paypalCardDialog"
+      class="h-full w-full overflow-auto @md:w-[600px] @md:h-fit"
+      tag="section"
+      disable-click-away
+    >
+      <PayPalCreditCardForm @confirm-cancel="paypalCardDialog = false" />
+    </UiModal>
+
+    <!-- Loading Modal während Bestellvorgang -->
+    <div v-if="processingOrder" class="page-spinner">
+      <div class="loader"></div>
+      <div class="checkout-loading-note rounded-[10px] bg-white text-dark text-center p-5">
+        <div class="transmission-text">
+          <p class="m-0">{{ t('checkout.loadingModal.secureTransmission') }}</p>
+          <p class="m-0 loading-text">{{ t('checkout.loadingModal.redirecting') }}</p>
+        </div>
+      </div>
+    </div>
+  </Teleport>
+</template>
+
+<script setup lang="ts">
+import { cartGetters, paymentProviderGetters } from '@plentymarkets/shop-api';
+import { SfLoaderCircular } from '@storefront-ui/vue';
+import {
+  PayPalCreditCardPaymentKey,
+  PayPalPaymentKey,
+  PayPalGooglePayKey,
+  PayPalApplePayKey,
+  PayPalPayUponInvoiceKey,
+  PayPalAlternativeFundingSourceMapper,
+} from '#paypal/types';
+import type { PayPalAddToCartCallback } from '#paypal/types';
+import { keyBy } from '~/utils/keyBy';
+import type { PaymentButtonComponent } from '@plentymarkets/shop-core';
+
+const { components } = useDynamicPaymentButtons();
+const { loading: createOrderLoading, createOrder } = useMakeOrder();
+const { isLoading: navigationInProgress } = useLoadingIndicator();
+const { processingOrder } = useProcessingOrder();
+const localePath = useLocalePath();
+const { emit } = usePlentyEvent();
+const { send } = useNotification();
+const {
+  shippingPrivacyAgreement,
+  customerWish,
+  customerSign,
+  doAdditionalInformation,
+  loading: additionalInformationLoading,
+} = useAdditionalInformation();
+const paypalCardDialog = ref(false);
+const payPalPayUponInvoice = ref(false);
+
+const {
+  cart,
+  clearCartItems,
+  cartLoading,
+  anyAddressFormIsOpen,
+  hasShippingAddress,
+  hasBillingAddress,
+  backToFormEditing,
+  validateTerms,
+  scrollToShippingAddress,
+} = useCheckout();
+
+const { paymentLoading, shippingLoading, paymentMethods, selectedPaymentId } = useCheckoutPagePaymentAndShipping();
+const disableShippingPayment = computed(() => shippingLoading.value || paymentLoading.value);
+const disableBuyButton = computed(
+  () =>
+    createOrderLoading.value ||
+    disableShippingPayment.value ||
+    cartLoading.value ||
+    additionalInformationLoading.value ||
+    navigationInProgress.value ||
+    processingOrder.value,
+);
+
+const paymentKey = computed(() => {
+  const paymentId = paymentProviderGetters.getMethodOfPaymentId(cart.value);
+  const paymentMethod = paymentProviderGetters.getPaymentMethodById(paymentMethods.value.list, Number(paymentId));
+  return paymentMethod ? paymentProviderGetters.getPaymentKey(paymentMethod) : null;
+});
+
+const paypalPaymentId = computed(() => {
+  if (!paymentMethods.value.list) return null;
+  return paymentProviderGetters.getIdByPaymentKey(paymentMethods.value.list, PayPalPaymentKey);
+});
+
+const paypalCreditCardPaymentId = computed(() => {
+  if (!paymentMethods.value.list) return null;
+  return paymentProviderGetters.getIdByPaymentKey(paymentMethods.value.list, PayPalCreditCardPaymentKey);
+});
+
+const paypalGooglePayPaymentId = computed(() => {
+  if (!paymentMethods.value.list) return null;
+  return paymentProviderGetters.getIdByPaymentKey(paymentMethods.value.list, PayPalGooglePayKey);
+});
+
+const paypalApplePayPaymentId = computed(() => {
+  if (!paymentMethods.value.list) return null;
+  return paymentProviderGetters.getIdByPaymentKey(paymentMethods.value.list, PayPalApplePayKey);
+});
+
+const PayPalPayUponInvoiceId = computed(() => {
+  if (!paymentMethods.value.list) return null;
+  return paymentProviderGetters.getIdByPaymentKey(paymentMethods.value.list, PayPalPayUponInvoiceKey);
+});
+
+const PayPalIsAPM = computed(() => {
+  if (!paymentMethods.value.list) return false;
+  const selectedPayment = paymentProviderGetters.getPaymentMethodById(
+    paymentMethods.value.list,
+    selectedPaymentId.value,
+  );
+  return (
+    selectedPayment &&
+    Object.keys(PayPalAlternativeFundingSourceMapper).includes(paymentProviderGetters.getPaymentKey(selectedPayment))
+  );
+});
+
+const handlePayUponInvoiceModalClosing = () => {
+  payPalPayUponInvoice.value = false;
+  processingOrder.value = false;
+  usePayUponInvoice().resetState();
+};
+
+const validateAndProceed = async (): Promise<boolean> => {
+  if (!readyToBuy()) return false;
+  return await doAdditionalInformation({
+    shippingPrivacyHintAccepted: shippingPrivacyAgreement.value,
+    orderContactWish: customerWish.value,
+    orderCustomerSign: customerSign.value,
+  });
+};
+
+const handlePreparePaymentPayPal = async (callback?: PayPalAddToCartCallback) => {
+  const canProceed = await validateAndProceed();
+  if (typeof callback === 'function') callback(canProceed);
+};
+
+const handlePreparePayment = async () => {
+  const canProceed = await validateAndProceed();
+  if (canProceed) await order();
+};
+
+const order = async () => {
+  const paymentMethodsById = keyBy(paymentMethods.value.list, 'id');
+
+  if (paymentMethodsById[selectedPaymentId.value]?.key === 'plentyPayPal') {
+    selectedPaymentId.value === PayPalPayUponInvoiceId.value
+      ? (payPalPayUponInvoice.value = true)
+      : (paypalCardDialog.value = true);
+
+    return;
+  }
+
+  processingOrder.value = true;
+  await handleRegularOrder();
+};
+
+const readyToBuy = () => {
+  if (anyAddressFormIsOpen.value) {
+    send({ type: 'secondary', message: t('address.unsavedWarning') });
+    return backToFormEditing();
+  }
+
+  if (!hasShippingAddress.value || !hasBillingAddress.value) {
+    send({ type: 'secondary', message: t('error.checkout.missingAddress') });
+    scrollToShippingAddress();
+    return false;
+  }
+
+  return validateTerms();
+};
+
+const openPayPalCardDialog = async () => {
+  if (!(await validateAndProceed())) return;
+  paypalCardDialog.value = true;
+};
+
+const handleRegularOrder = async () => {
+  const data = await createOrder({
+    paymentId: paymentMethods.value.selected,
+  });
+
+  if (data?.order?.id) {
+    emit('frontend:orderCreated', data);
+    clearCartItems();
+    return navigateTo(localePath(paths.confirmation + '/' + data.order.id + '/' + data.order.accessKey));
+  } else {
+    await useCartStockReservation().unreserve();
+    processingOrder.value = false;
+  }
+};
+
+const renderPaymentComponent = (component: PaymentButtonComponent) => {
+  const selectedPayment = paymentMethods.value.list.find((payment) => payment.id === selectedPaymentId.value);
+
+  if (!selectedPayment) {
+    return false;
+  }
+  if (component.key && selectedPayment?.key !== component.key) {
+    return false;
+  }
+  if (component.paymentKey && selectedPayment?.paymentKey !== component.paymentKey) {
+    return false;
+  }
+  if (component.excludeKeys && component.excludeKeys.includes(selectedPayment?.key)) {
+    return false;
+  }
+  return !(component.excludePaymentKeys && component.excludePaymentKeys.includes(selectedPayment?.paymentKey));
+};
+const filteredComponents = computed(() => components.value.filter((component) => renderPaymentComponent(component)));
+const validateOnClickComponents = async (event: MouseEvent, component: PaymentButtonComponent) => {
+  if (component.disableClickEvent) {
+    return;
+  }
+  if (event.target && (await validateAndProceed())) {
+    event.target.dispatchEvent(new CustomEvent('validated-click'));
+  }
+};
+</script>
+
+<style scoped>
+.page-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.page-spinner .loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>

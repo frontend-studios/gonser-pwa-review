@@ -1,0 +1,89 @@
+:root {
+  --gray-light: #f4f3f6;
+  --gray: #e8e5eb;
+  --gray-dark: #b5b1bc;
+  --gray-super-dark: #928e9a;
+  --black: #12120d;
+  --red: #e20013;
+}
+
+html,
+body {
+  letter-spacing: -2%;
+}
+html a {
+  color: var(--black);
+  text-decoration: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  letter-spacing: -3%;
+  font-weight: 600;
+}
+
+h1,
+.h1 {
+  font-size: 2.25rem;
+  line-height: 110%;
+
+  @screen md {
+    font-size: 2.75rem;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 1.75rem;
+  line-height: 120%;
+
+  @screen md {
+    font-size: 2.25rem;
+  }
+}
+
+h3,
+.h3 {
+  font-size: 1.25rem;
+  line-height: 130%;
+  @screen md {
+    font-size: 1.75rem;
+  }
+}
+
+h4,
+.h4 {
+  font-size: 1.25rem;
+  line-height: 140%;
+  @screen md {
+    font-size: 1.375rem;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 1.125rem;
+  line-height: 140%;
+  @screen md {
+    font-size: 1.25rem;
+  }
+}
+
+h6,
+.h6 {
+  font-size: 1.125rem;
+  line-height: 160%;
+  @screen md {
+    font-size: 1.125rem;
+  }
+}

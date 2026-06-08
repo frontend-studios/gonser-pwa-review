@@ -1,0 +1,516 @@
+{
+  "theme": {
+    "filter": {
+      "availability": {
+        "id11": "sofort lieferbar",
+        "id12": "mit Lieferzeit",
+        "id13": "z. Zt. nicht lieferbar"
+      },
+      "sale": {
+        "id10": "SALE"
+      },
+      "nameOverride": {
+        "BoxArtikel": "GONSERBOX-Artikel"
+      }
+    },
+    "infoBar": {
+      "home": "Startseite",
+      "homeLink": "",
+      "product": "Produktseite",
+      "productLink": "",
+      "category": "Kategorieseite",
+      "categoryLink": "",
+      "checkout": "Checkout",
+      "checkoutLink": "",
+      "global": "Global",
+      "globalLink": "",
+      "closeButton": "yes"
+    },
+    "header": {
+      "contact": "Kontakt",
+      "faq": "FAQ",
+      "aboutUs": "Über uns"
+    },
+    "footer": {
+      "contact": {
+        "headline": "Kontakt",
+        "name": "GONSER AG",
+        "street": "Galgenried 18",
+        "city": "6370 Stans",
+        "email": "info{'@'}gonser.ch"
+      },
+      "links": {
+        "headline": "Links",
+        "link1": {
+          "text": "Über uns",
+          "url": "/about/ueber-uns/"
+        },
+        "link2": {
+          "text": "FAQ",
+          "url": "/about/faq/"
+        },
+        "link3": {
+          "text": "Kontakt",
+          "url": "/about/kontakt/"
+        },
+        "link4": {
+          "text": "Newsletter",
+          "url": "/about/newsletter/"
+        },
+        "link5": {
+          "text": "Ideenwelt",
+          "url": "/go/"
+        },
+        "link6": {
+          "text": "UGC",
+          "url": "/about/ugc/"
+        },
+        "link7": {
+          "text": "Sicherheitshinweise",
+          "url": "/about/fakeshops/"
+        },
+        "link8": {
+          "text": "Jobs",
+          "url": "/stellenangebote/"
+        },
+        "link9": {
+          "text": "Charity",
+          "url": "https://charity.gonser.ch/"
+        },
+        "link10": {
+          "text": "Gutscheine",
+          "url": "/gutscheine/"
+        }
+      },
+      "legal": {
+        "headline": "Legal",
+        "link1": {
+          "text": "AGB",
+          "url": "/de/gtc/"
+        },
+        "link2": {
+          "text": "Impressum",
+          "url": "/de/legal-disclosure/"
+        },
+        "link3": {
+          "text": "Datenschutz",
+          "url": "/de/privacy-policy/"
+        }
+      },
+      "awards": {
+        "headline": "Auszeichnungen",
+        "award1": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/KundenChampion2025.png",
+          "alt": "Kunden Champion 2025 - Hervorragende Kundenzufriedenheit"
+        },
+        "award2": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/BranchenChampion2025.png",
+          "alt": "Branchen Champion 2025 - 1. Platz Preis/Leistung"
+        }
+      },
+      "safety": {
+        "headline": "Sicher einkaufen",
+        "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/SicherEinkaufen.png",
+        "alt": "Sicheres Einkaufen"
+      },
+      "copyright": {
+        "disclaimer": "* Unverbindliche Preisempfehlung des Herstellers",
+        "text": "© 2026 GONSER AG. Alle Rechte vorbehalten"
+      },
+      "payment": {
+        "headline": "Zahlungsmöglichkeiten",
+        "method1": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Visa.svg",
+          "alt": "Visa"
+        },
+        "method2": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/bank.svg",
+          "alt": "Banküberweisung"
+        },
+        "method3": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/PayPal.svg",
+          "alt": "PayPal"
+        },
+        "method4": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Twint.svg",
+          "alt": "Twint"
+        },
+        "method5": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Empty.svg",
+          "alt": "Empty"
+        },
+        "method6": {
+          "image": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Empty.svg",
+          "alt": "Empty"
+        }
+      },
+      "socialmedia": {
+        "headline": "Social Media",
+        "platform1": {
+          "url": "https://www.linkedin.com/company/gonser-ag/",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/LinkedIn.svg",
+          "alt": "LinkedIn"
+        },
+        "platform2": {
+          "url": "https://www.facebook.com/gonser.ch",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Facebook.svg",
+          "alt": "Facebook"
+        },
+        "platform3": {
+          "url": "https://www.instagram.com/gonser.ch/",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/Instagram.svg",
+          "alt": "Instagram"
+        },
+        "platform4": {
+          "url": "https://www.gonser.ch/about/whatsapp-newsletter/",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/WhatsApp.svg",
+          "alt": "WhatsApp Newsletter"
+        },
+        "platform5": {
+          "url": "https://www.tiktok.com/{'@'}gonser.ch?lang=de-DE",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/footer/TikTok.svg",
+          "alt": "TikTok"
+        }
+      }
+    },
+    "availability": {
+      "iconGreen": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Availability/Icon-green.svg",
+      "iconRed": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Availability/Icon-red.svg",
+      "iconOrange": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Availability/Icon-orange.svg"
+    },
+    "GonserBox": {
+      "currency": "CHF",
+      "brandName": "GONSERBOX",
+      "infoText1": "Nur bei GONSERBOX Artikeln fallen Versandkosten an.",
+      "infoText2": "Ab CHF 35.00 versenden wir diese versandkostenfrei.",
+      "imageUrl": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/gonserbox.png",
+      "imageAlt": "GONSERBOX Versandpaket",
+      "boxIconUrl": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Box-artikel.svg",
+      "boxIconTooltip": "Box-Artikel",
+      "remainingPrefix": "Nur noch",
+      "remainingSuffix": "bis zum Gratisversand",
+      "freeShipping": "Geschafft! Wir liefern deine GONSERBOX gratis.",
+      "freeShippingShort": "Versandkostenfrei",
+      "shippingInfo": "Versandkosten-Information",
+      "reached": "✓ Erreicht!",
+      "reachedIcon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/check-white.svg",
+      "button1": {
+        "text": "Alle Artikel anzeigen",
+        "url": "/box-artikel/"
+      },
+      "button2": {
+        "text": "Mehr Infos",
+        "url": "#"
+      },
+      "modal": {
+        "headline": "Versandkosten",
+        "freeShippingText": "versandkostenfrei",
+        "intro": "Wir liefern alle Produkte, welche direkt über unseren Webshop bestellt werden, {freeShippingText} innerhalb der Schweiz und dem Fürstentum Liechtenstein.",
+        "imageUrl": "https://cdn10.plentymarkets.com/mrt54q44tptl/frontend/Gonser/Gonser_Box_klein.webp",
+        "imageAlt": "GONSERBOX Versandpaket",
+        "exceptionPart1": "Die einzige Ausnahme davon bilden kleine Produkte, welche als",
+        "exceptionPart2": "Artikel vermerkt sind. Um dir auch für diese Artikel bestmögliche Preise anbieten zu können, verrechnen wir bei",
+        "exceptionPart3": "-Artikeln einen Versandkostenanteil von {currency} 6.90. Sobald die Summe aller",
+        "exceptionPart4": "-Artikel {currency} 35.00 erreicht, erhältst du diese Artikel ebenfalls versandkostenfrei geliefert!",
+        "orderInfo": "Deine Bestellung wird nach Zahlungseingang so schnell wie möglich oder bei Kauf auf Rechnung direkt versendet. Der Versand auf Rechnung ist nur unter bestimmten Voraussetzungen verfügbar. Die Lieferung erfolgt innerhalb der im Webshop ausgewiesenen Lieferzeiten.",
+        "shippingPartners": "Die Lieferung erfolgt in der Regel mit unseren Paketdienstleistern Planzer und DHL. Stückgut wird mit einer unserer Speditionen zugestellt. Die Spedition liefert grundsätzlich bis zur Bordsteinkante der jeweiligen Lieferadresse.",
+        "noAbroad": "Eine Lieferung ins Ausland ist leider nicht möglich."
+      }
+    },
+    "EnergyLabel": {
+      "iconBaseUrl": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/Gonser/icons/EnergieEffizienzIcons",
+      "ariaLabel": "Energieeffizienzklasse",
+      "lightboxTitle": "Energieeffizienzklasse",
+      "lightboxImageAlt": "Energielabel für Klasse",
+      "noLightboxImage": "Kein Energielabel-Bild verfügbar"
+    },
+    "ProductPage": {
+      "sale": "SALE",
+      "saving": "Spare {percentage}%",
+      "color": "Farbe:",
+      "variant": "Variante:",
+      "outOfStock": "Nicht auf Lager",
+      "description": "Beschreibung",
+      "articleNumber": "Artikel-Nr",
+      "showMore": "MEHR ANZEIGEN",
+      "showLess": "WENIGER ANZEIGEN",
+      "relatedProducts": "Zubehör",
+      "similarProducts": "Häufig zusammen gekauft",
+      "replacementParts": "Ersatzteile",
+      "insteadOfRRP": "statt UVP",
+      "availabilityModal": {
+        "headline": "Versandkosten",
+        "intro": "Wir liefern alle Produkte, welche direkt über unseren Webshop bestellt werden, versandkostenfrei innerhalb der Schweiz und dem Fürstentum Liechtenstein.",
+        "exception": "Die einzige Ausnahme davon bilden kleine Produkte, welche als \"GONSERBOX\" Artikel vermerkt sind. Um dir auch für diese Artikel bestmögliche Preise anbieten zu können, verrechnen wir bei GONSERBOX-Artikeln einen Versandkostenanteil von CHF 6.90. Sobald die Summe aller GONSERBOX-Artikel CHF 35.00 erreicht, erhältst du diese Artikel ebenfalls versandkostenfrei geliefert!",
+        "orderInfo": "Deine Bestellung wird nach erhaltenem Zahlungseingang gemäss den im Webshop ausgewiesenen Lieferzeiten so schnell wie möglich verschickt. Der Versand auf Rechnung ist leider nicht möglich.",
+        "shippingPartners": "Die Lieferung erfolgt in der Regel mit unseren Paketdienstleistern Planzer und DHL. Stückgut wird mit einer unserer Speditionen zugestellt. Die Spedition liefert grundsätzlich bis zur Bordsteinkante der jeweiligen Lieferadresse.",
+        "noAbroad": "Eine Lieferung ins Ausland ist leider nicht möglich."
+      },
+      "specialUsp": {
+        "usp": {
+          "text": "Heute bestellt, morgen geliefert!",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/order.svg"
+        }
+      },
+      "usps": {
+        "usp1": {
+          "text": "Tiefstpreisgarantie",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/thumbs.svg"
+        },
+        "usp2": {
+          "text": "100 Tage Umtauschrecht",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/refresh.svg"
+        },
+        "usp3": {
+          "text": "Gratisversand ab CHF 35",
+          "shortText": "Gratisversand",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/delivery.svg"
+        },
+        "usp4": {
+          "text": "",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/order.svg"
+        },
+        "usp5": {
+          "text": "Schnellversand aus Schweizer Lager",
+          "textBold": "Schnellversand",
+          "textRest": "aus Schweizer Lager",
+          "icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/PDP/switzerland.svg"
+        }
+      }
+    },
+    "recentlyViewed": {
+      "headline": "Zuletzt angesehen",
+      "empty": "Noch keine Produkte angesehen",
+      "scrollLeft": "Nach links scrollen",
+      "scrollRight": "Nach rechts scrollen"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "showMore": "Weitere Kategorien anzeigen"
+    },
+    "ContactPage": {
+      "name": "Kontaktformular",
+      "intro": {
+        "paragraph1": "Du hast eine Frage oder ein Anliegen? Dann nimm mit uns Kontakt auf.",
+        "paragraph2": "Fülle einfach das Formular aus und wir werden deine Anfrage schnellstmöglich bearbeiten.",
+        "paragraph3": "Bei allgemeinen Fragen findest du",
+        "faqLink": "hier",
+        "faqUrl": "/gonser/faq",
+        "paragraph3End": "unsere FAQ's."
+      },
+      "fields": {
+        "name": "Name *",
+        "email": "Email Adresse *",
+        "message": "Nachricht *",
+        "orderId": "Order-ID",
+        "itemId": "Artikel-ID",
+        "link": "Link"
+      },
+      "subjectHeadline": "Worum geht es? *",
+      "accordions": {
+        "order": "Um eine Bestellung",
+        "item": "Um einen Artikel",
+        "other": "Um eine andere Anfrage"
+      },
+      "fileUpload": {
+        "headline": "Dateien hochladen",
+        "description": "Gerne kannst du deiner Nachricht Dateien (max. 5) hinzufügen. Fotos des Artikels / der Verpackung erleichtern uns z.B. die Bearbeitung von Reklamationen.",
+        "selectButton": "Dateien wählen",
+        "maxFilesError": "Du kannst maximal 5 Dateien hochladen."
+      },
+      "validation": {
+        "selectReason": "Bitte wähle einen Grund aus."
+      },
+      "submitButton": "Absenden",
+      "orderOptions": {
+        "payment": {
+          "label": "Frage zur Zahlung",
+          "value": "Ihre Anfrage zur Zahlung",
+          "description": "Sobald wir deine Zahlung erhalten haben, wird die Bestellung so schnell wie möglich in den Versand gegeben. Eine Bank- oder Postüberweisung kann 1-3 Arbeitstage in Anspruch nehmen. Hast du bereits bezahlt, aber noch keine Versandbestätigung erhalten? Gerne prüfen wir den Status deiner Bestellung. Mit Hilfe deines Zahlungsbelegs können wir die Zahlung rasch überprüfen - herzlichen Dank für deine Mithilfe!"
+        },
+        "delivery": {
+          "label": "Frage zur Lieferung",
+          "value": "Ihre Anfrage zur Lieferung der Bestellung",
+          "description": "Nach Zahlungseingang wird die Bestellung so schnell wie möglich verschickt. Die entsprechende Lieferzeit deines Artikels findest du in der Bestellbestätigung oder auf der Artikelseite im Webshop. Sobald die Bestellung verschickt wird, erhältst du eine Versandbestätigung per E-Mail. Allenfalls lohnt sich ein Blick in den Spam-Ordner deines Postfachs. Die Lieferung findet von Montag bis Freitag statt."
+        },
+        "address": {
+          "label": "Adressänderung",
+          "value": "Ihre Adressänderung",
+          "description": "Adressänderungen können wir vor Erhalt der Zahlung gerne berücksichtigen. Um allfällige Rückfragen zu vermeiden, sind wir froh um eine vollständige Angabe der Adresse inklusive Mailadresse und Telefonnummer. Lieferungen an Postfächer oder Pick-Up-Adressen sind leider grundsätzlich nicht möglich."
+        },
+        "cancel": {
+          "label": "Ich möchte die Bestellung stornieren",
+          "value": "Ihre Stornoanfrage",
+          "description": "In der Regel können Bestellungen storniert werden, solange sie noch nicht verschickt wurden. Wir sind froh, wenn du uns die Bestellnummer / Order ID der betroffenen Bestellung mitteilst. Wir werden deine Anfrage so schnell wie möglich prüfen und beantworten."
+        },
+        "defect": {
+          "label": "Meldung Defekt / Mängel",
+          "value": "Ihre Beanstandung",
+          "description": "Deine Bestellung wurde defekt geliefert? Das tut uns sehr leid. Gerne darfst du dich bei uns melden und uns Fotos oder ein kleines Video zukommen lassen. Selbstverständlich möchten wir anschliessend eine für dich passende Lösung finden. Bei Transportschäden sind wir froh, wenn du uns von der beschädigten Verpackung und der Adressetikette ebenfalls Fotos zusenden könnten. Herzlichen Dank für deine Mithilfe!"
+        },
+        "wrongDelivery": {
+          "label": "Meldung Falschlieferung",
+          "value": "Ihre Meldung einer Falschlieferung",
+          "description": "Hast du einen anderen Artikel erhalten, als du bestellt hast? Das tut uns sehr leid. Bitte sende uns Fotos der Adressetikette sowie des Kartonaufdrucks, damit wir diese Falschlieferung umgehend prüfen und korrigieren können. Herzlichen Dank für deine Meldung."
+        },
+        "other": {
+          "label": "Anderes Anliegen zur Bestellung",
+          "value": "Ihr Anliegen zur Bestellung",
+          "description": "Gerne nehmen wir dein Anliegen, Wunsch, Fragen oder auch konstruktive Kritik entgegen. Wir freuen uns auf deine Kontaktaufnahme."
+        }
+      },
+      "itemOptions": {
+        "question": {
+          "label": "Fragen zu einem Artikel",
+          "value": "Ihre Anfrage zu einem Artikel",
+          "description": "Gerne nehmen wir deine Anfrage entgegen. Für welchen Artikel interessierst du dich? Lass uns doch bitte die Artikelnummer wissen oder sende uns den Link zum Angebot, damit wir deine Fragen klären können. Wir freuen uns auf deine Kontaktaufnahme."
+        },
+        "delivery": {
+          "label": "Frage zur Lieferung",
+          "value": "Ihre Anfrage zur Lieferung eines Artikels",
+          "description": "Wir lassen unsere Artikel mit unseren Paketdienstleistern Planzer oder DHL liefern. Je nach Gewicht und Grösse erfolgt die Lieferung durch eine Spedition unseres Vertrauens. Eine Abholung können wir leider nicht anbieten. Für weitere Fragen sind wir gerne für dich da und freuen uns auf deine Kontaktaufnahme."
+        },
+        "availability": {
+          "label": "Frage zur Verfügbarkeit",
+          "value": "Ihre Anfrage zur Verfügbarkeit eines Artikels",
+          "description": "Grundsätzlich gelten die ausgewiesenen Lieferzeiten auf der Artikelseite. Gerne darfst du auch unseren Benachrichtigungs-Service nutzen, sofern ein Artikel ausverkauft und aktuell nicht lieferbar ist. Bei weiteren Fragen sind wir gerne für dich da. Wenn du uns die Artikelnummer oder den Link zum Angebot zusendest, können wir schneller auf deine Anfrage eingehen. Wir freuen uns auf deine Kontaktaufnahme."
+        }
+      },
+      "otherOptions": {
+        "general": {
+          "label": "Allgemeine Frage",
+          "value": "Ihr Anliegen an uns",
+          "description": "Du möchtest gerne unseren Kundendienst kontaktieren? Wir freuen uns auf deine Anfrage."
+        },
+        "sponsoring": {
+          "label": "Anfrage Sponsoring & Spenden",
+          "value": "Ihre Sponsoring- und / oder Spendenanfrage",
+          "description": "Du suchst einen Sponsor oder sammelst (Sach-) Spenden? Wir freuen uns auf deine Anfrage."
+        },
+        "reseller": {
+          "label": "Anfrage Wiederverkäufer",
+          "value": "Ihre Anfrage als Wiederverkäufer",
+          "description": "Wir beliefern einige Wiederverkäufer und können ein Drop-Shipping direkt zu deinen Kunden anbieten."
+        },
+        "press": {
+          "label": "Presse- und Medienanfrage",
+          "value": "Ihre Presse- oder Medienanfrage",
+          "description": "Du möchtest gerne mit der Gonser AG Kontakt aufnehmen? Wir freuen uns auf deine Anfrage."
+        }
+      }
+    },
+    "CatView": {
+      "ups1icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Box-artikel.svg",
+      "ups1headline": "Tiefstpreisgarantie",
+      "ups1text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "ups2icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Box-artikel.svg",
+      "ups2headline": "100 Tage Umtauschrecht",
+      "ups2text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "ups3icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Box-artikel.svg",
+      "ups3headline": "Gratisversand ab CHF 35",
+      "ups3text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "ups4icon": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/PWA/Box-artikel.svg",
+      "ups4headline": "Heute bestellt, morgen geliefert!",
+      "ups4text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "btnFilter": "Alle Filter",
+      "modalFilter": "Filter",
+      "resultSingular": "Resultat",
+      "resultPlural": "Resultate",
+      "reset": "Zurücksetzen",
+      "apply": "Speichern",
+      "numberOfProductsMobile": "{count} von {total} Produkten",
+      "perPage": "Artikel pro Seite"
+    },
+    "MyAccount": {
+      "orders": {
+        "headline": "Deine Bestellungen",
+        "loadingMore": "Lädt weitere...",
+        "resetSearch": "Suche zurücksetzen",
+        "searchPlaceholder": "Suche nach Auftrags-Id, Artikel-Id oder Artikelname",
+        "searching": "Suche läuft...",
+        "searchButton": "Suchen",
+        "noResultsHeadline": "Keine Bestellungen gefunden",
+        "noResultsText": "Deine Suche nach \"{query}\" ergab keine Treffer.",
+        "amount": "Summe",
+        "status": {
+          "3": "Zahlung ausstehend",
+          "3_1": "Zahlung ausstehend",
+          "3_5": "1. Zahlungserinnerung",
+          "3_6": "2. Zahlungserinnerung",
+          "3_7": "3. Zahlungserinnerung",
+          "4": "Warten auf Ware",
+          "4_5": "Lieferung ausstehend",
+          "5": "Zahlung erfolgreich",
+          "6": "Versandbereit",
+          "6_1": "Versandbereit",
+          "7": "Bestellung versendet",
+          "8": "Bestellung storniert",
+          "8_1": "Bestellung storniert",
+          "9": "Retoure veranlasst",
+          "12": "Zahlung ausstehend"
+        }
+      }
+    },
+    "checkout": {
+      "termsAcceptance": "Durch Absenden der Bestellung erklärst du dich mit unseren {terms} einverstanden.",
+      "powerpayTermsAcceptance": "Hiermit bestätige ich, die AGB für POWERPAY Kauf auf Rechnung ({powerpayLink}) gelesen und akzeptiert zu haben."
+    },
+    "cartDrawer": {
+      "title": "Warenkorbvorschau",
+      "viewCart": "Warenkorb",
+      "goShopping": "Weiter einkaufen",
+      "checkout": "Kasse",
+      "gonserBoxInfo": "Nur bei GONSERBOX Artikeln fallen Versandkosten an.",
+      "itemsSubtotal": "Warenwert",
+      "total": "Gesamtsumme",
+      "vat": "inkl. MwSt.",
+      "recommendedProducts": "Empfohlene Produkte",
+      "cartEmpty": "Du hast noch keine Artikel im Warenkorb."
+    },
+    "quickCheckout": {
+      "heading": "Sehr gute Wahl!",
+      "subheading": "Erfolgreich hinzugefügt",
+      "basket": "Warenkorb",
+      "goToCheckout": "Zur Kasse",
+      "addToCart": "Hinzufügen",
+      "added": "Hinzugefügt",
+      "gonserShowAll": "Alle Artikel anzeigen",
+      "gonserShowAllUrl": "/box-artikel/"
+    },
+    "cart": {
+      "recommendedProducts": "Empfohlene GONSERBOX-Artikel",
+      "toCheckout": "Kasse"
+    }
+  },
+  "error": {},
+  "footer": {
+    "services": {
+      "label": "Kontakt"
+    }
+  },
+  "common": {
+    "accessibility": {
+      "viewDetails": "Details anzeigen für {name}"
+    }
+  },
+  "cancellationForm": {
+    "orderId": "Auftragsnummer",
+    "name": "Vollständiger Name",
+    "email": "Kontakt-E-Mail",
+    "reason": "Grund für den Widerruf",
+    "submit": "Widerruf bestätigen",
+    "asterixHint": "markierte Felder sind Pflichtfelder",
+    "orderIdInvalid": "Bitte geben Sie eine gültige Auftragsnummer ein.",
+    "misConfigured": "Unser Widerrufsformular ist aufgrund einer fehlenden Konfiguration vorübergehend deaktiviert. Bitte schauen Sie später noch einmal vorbei oder kontaktieren Sie uns über alternative Kontaktmöglichkeiten.",
+    "success": "Ihr Widerruf wurde erfolgreich übermittelt. Wir haben soeben eine Bestätigungs-E-Mail mit allen Details an {email} gesendet."
+  },
+  "legal": {
+    "withdrawButton": "Vertrag widerrufen"
+  },
+  "storefrontError": {
+    "cancellation": {
+      "recipientNotConfigured": "Das Widerrufsformular ist nicht konfiguriert. Bitte kontaktieren Sie den Seitenbetreiber.",
+      "submitFailed": "Der Widerruf konnte nicht übermittelt werden. Bitte versuchen Sie es später erneut."
+    }
+  }
+}

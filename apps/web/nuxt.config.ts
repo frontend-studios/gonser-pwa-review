@@ -7,6 +7,7 @@ import { paths } from './app/utils/paths';
 import settingsConfig from './app/configuration/settings.config';
 import featureFlagsConfig from './app/configuration/feature-flags.config';
 import { FailOnLargeChunksPlugin } from './app/configuration/vite.config';
+import { thirdPartyDeps, localPackageDeps } from './app/configuration/optimize-deps.config';
 
 export default defineNuxtConfig({
   srcDir: 'app/',
@@ -14,7 +15,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/richtext.css'],
   typescript: {
-    typeCheck: true,
+    typeCheck: false, // type checking runs via `npm run typecheck`, on build, and in CI (fitness-code-quality)
   },
   app: appConfiguration,
   experimental: {
@@ -22,64 +23,42 @@ export default defineNuxtConfig({
   },
   appConfig: {
     titleSuffix: process.env.NAME || 'PlentyONE Shop',
-    fallbackCurrency: 'GBP',
+    fallbackCurrency: 'CHF',
   },
   imports: {
     dirs: ['~/composables', '~/composables/**', '~/utils/**'],
+  },
+  hooks: {
+    'imports:extend'(imports) {
+      // Nuxt can register both legacy flat utils and new index/types-based utils,
+      // plus module overrides for the same symbol name. Keep the final winner per
+      // symbol (current Nuxt resolution behavior) and remove the rest to avoid
+      // duplicated-import warnings during dev startup.
+      const seen = new Set<string>();
+
+      for (let i = imports.length - 1; i >= 0; i -= 1) {
+        const entry = imports[i];
+
+        if (!entry?.name) continue;
+
+        if (seen.has(entry.name)) {
+          imports.splice(i, 1);
+          continue;
+        }
+
+        seen.add(entry.name);
+      }
+    },
   },
   vite: {
     server: {
       fs: {
         allow: ['../../..'], // relative to the current nuxt.config.ts
       },
-      watch: {
-        usePolling: process.env.NODE_ENV === 'development', // see apps/web/app/plugins/02.pwa-cookie.ts
-      },
     },
     plugins: [FailOnLargeChunksPlugin],
     optimizeDeps: {
-      include: [
-        '@codemirror/lang-css',
-        '@codemirror/lang-javascript',
-        '@codemirror/state',
-        '@floating-ui/vue',
-        '@intlify/core-base',
-        '@intlify/shared',
-        '@paypal/paypal-js',
-        '@plentymarkets/shop-api',
-        '@plentymarkets/tailwind-colors',
-        '@storefront-ui/shared',
-        '@storefront-ui/vue',
-        '@tanstack/vue-virtual',
-        '@tiptap/extension-color',
-        '@tiptap/extension-highlight',
-        '@tiptap/extension-link',
-        '@tiptap/extension-text-align',
-        '@tiptap/extension-text-style',
-        '@tiptap/extension-underline',
-        '@tiptap/starter-kit',
-        '@tiptap/vue-3',
-        '@vee-validate/yup',
-        '@vue/devtools-core',
-        '@vue/devtools-kit',
-        '@vueuse/core',
-        '@vueuse/shared',
-        'codemirror',
-        'cookie',
-        'country-flag-icons/string/3x2',
-        'dotenv',
-        'drift-zoom',
-        'js-beautify',
-        'js-sha256',
-        'swiper/modules',
-        'swiper/vue',
-        'uuid',
-        'vue-multiselect',
-        'vue3-lazy-hydration',
-        'vue-tel-input',
-        'vuedraggable/src/vuedraggable',
-        'yup',
-      ],
+      include: [...thirdPartyDeps, ...localPackageDeps],
     },
     build: {
       modulePreload: { polyfill: false },
@@ -87,15 +66,19 @@ export default defineNuxtConfig({
         output: {
           manualChunks: {
             tiptap: [
-              '@tiptap/vue-3',
               '@tiptap/core',
-              '@tiptap/starter-kit',
               '@tiptap/extension-link',
               '@tiptap/extension-underline',
-              '@tiptap/extension-text-style',
+              '@tiptap/starter-kit',
+              '@tiptap/vue-3',
+            ],
+            tiptapExtensions: [
               '@tiptap/extension-color',
+              '@tiptap/extension-emoji',
               '@tiptap/extension-highlight',
+              '@tiptap/extension-placeholder',
               '@tiptap/extension-text-align',
+              '@tiptap/extension-text-style',
             ],
             vuetify: ['vuetify', '@mdi/js'],
           },
@@ -103,7 +86,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  // TODO: build is consistently failing because of this. check whether we need pre-render check.
   nitro: {
     prerender: {
       crawlLinks: false,
@@ -113,8 +95,9 @@ export default defineNuxtConfig({
   routeRules: {
     '/_ipx/**': { headers: { 'cache-control': `public, max-age=31536000, immutable` } },
     '/_nuxt-plenty/icons/**': { headers: { 'cache-control': `public, max-age=31536000, immutable` } },
-    '/_nuxt-plenty/favicon.ico': { headers: { 'cache-control': `public, max-age=31536000, immutable` } },
+    '/_nuxt-plenty/favicon.ico': { headers: { 'cache-control': `public, max-age=86400` } },
     '/_nuxt-plenty/images/**': { headers: { 'cache-control': `max-age=604800` } },
+    '/favicon.ico': { redirect: { to: '/_nuxt-plenty/favicon.ico', statusCode: 301 } },
   },
   image: {
     provider: 'none',
@@ -180,8 +163,9 @@ export default defineNuxtConfig({
       '/confirmation',
       '/wishlist',
       '/login',
-      '/signup',
+      '/register',
       '/reset-password',
+      '/favicon.ico',
     ],
   },
   shopCore: {
@@ -197,7 +181,8 @@ export default defineNuxtConfig({
   },
   fonts: {
     defaults: {
-      weights: [300, 400, 500, 700],
+      // NEU: 600er Font-Weight wie im Design verwendet
+      weights: [300, 400, 500, 600, 700],
       preload: true,
     },
     assets: {
@@ -215,6 +200,8 @@ export default defineNuxtConfig({
       sm: 640,
       md: 768,
       lg: 1024,
+      //NEU!!
+      xl: 1280,
       '4xl': 1920,
     },
     defaultBreakpoints: {
@@ -246,7 +233,7 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: null,
       globPatterns: ['**/*.{js,json,css,html,ico,svg,png,webp,ico,woff,woff2,ttf,eit,otf}', '_nuxt-plenty/icons/*'],
-      globIgnores: ['manifest**.webmanifest'],
+      globIgnores: ['manifest**.webmanifest', '_nuxt-plenty/editor/blocksLists.json'],
       additionalManifestEntries: [
         {
           url: '/offline',

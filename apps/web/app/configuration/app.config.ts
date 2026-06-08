@@ -3,11 +3,11 @@ export const metaDefaults = {
   description: process.env.NUXT_PUBLIC_META_DESCRIPTION || process.env.METADESC || 'Demo shop for PlentyONE Shop',
   keywords: process.env.NUXT_PUBLIC_META_KEYWORDS || process.env.METAKEYWORDS || 'PlentyONE, plentyshop, pwa',
   robots: process.env.NUXT_PUBLIC_ROBOTS || 'all',
-  themeColor: process.env.NUXT_PUBLIC_PRIMARY_COLOR || '#062633',
+  themeColor: process.env.NUXT_PUBLIC_PRIMARY_COLOR || '#e20013',
 };
 
 export const openGraph = {
-  title: process.env.NUXT_PUBLIC_OG_TITLE || process.env.OG_TITLE || 'PlentyONE Shop',
+  title: process.env.NUXT_PUBLIC_OG_TITLE || process.env.OG_TITLE || 'GONSER.CH',
   image:
     process.env.NUXT_PUBLIC_OG_IMG ||
     process.env.OG_IMG ||
@@ -23,7 +23,7 @@ export const appConfiguration = {
   head: {
     viewport: 'minimum-scale=1, initial-scale=1, width=device-width',
     htmlAttrs: {
-      lang: process.env.DEFAULTLANGUAGE ?? 'en',
+      lang: process.env.DEFAULTLANGUAGE ?? 'de',
     },
     meta: [
       { property: 'og:type', content: openGraph.type },

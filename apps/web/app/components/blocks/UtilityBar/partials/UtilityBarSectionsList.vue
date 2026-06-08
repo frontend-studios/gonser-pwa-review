@@ -1,14 +1,5 @@
 <template>
-  <UiAccordionItem
-    v-model="isOpen"
-    summary-active-class="bg-neutral-100"
-    summary-class="w-full hover:bg-neutral-100 px-4 py-5 flex justify-between items-center select-none border-b"
-    content-padding-class="py-4"
-  >
-    <template #summary>
-      <h2>{{ getEditorTranslation('elements-group-label') }}</h2>
-    </template>
-
+  <EditorFormPanel v-model="isOpen" :title="getEditorTranslation('elements-group-label')" content-class="py-4">
     <div>
       <div v-if="sections.length" class="space-y-0">
         <template v-for="(section, index) in sections" :key="section.id">
@@ -43,7 +34,7 @@
                 </SfIconBase>
               </button>
 
-              <div :key="`menu-${index}`" class="relative">
+              <!-- <div :key="`menu-${index}`" class="relative">
                 <button
                   :data-testid="`actions-menu-section-${index}`"
                   class="text-gray-500 rounded-full no-drag"
@@ -70,17 +61,17 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </template>
       </div>
     </div>
-  </UiAccordionItem>
+  </EditorFormPanel>
 </template>
 
 <script setup lang="ts">
-import { SfIconMoreVert, SfIconBase, SfSwitch } from '@storefront-ui/vue';
+import { SfIconBase } from '@storefront-ui/vue';
 import { editPath } from '~/assets/icons/paths/edit';
 import type { UtilityBarSection, SectionType } from '../types';
 

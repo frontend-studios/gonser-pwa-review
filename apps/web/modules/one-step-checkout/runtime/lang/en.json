@@ -1,0 +1,77 @@
+{
+  "checkout": {
+    "loadingModal": {
+      "secureTransmission": "Your data is being transmitted securely.",
+      "redirecting": "You will be redirected shortly."
+    },
+    "payment": {
+      "secureEncrypted": "Secure & encrypted",
+      "methods": {
+        "6034": {
+          "description": "Pay quickly and securely via the TWINT app."
+        },
+        "6012": {
+          "description": "Pay easily and securely with credit card or your wallet (Apple Pay, Google Pay, etc.)."
+        },
+        "6019": {
+          "description": "We deliver immediately and you pay later. You will receive the invoice by email from POWERPAY."
+        },
+        "6010": {
+          "description": "You pay first, then we ship your order. You will receive the invoice by email."
+        },
+        "6025": {
+          "description": "Pay quickly and securely with your PayPal account."
+        }
+      },
+      "defaultDescription": "Pay with {name}. Your payment will be processed securely."
+    },
+    "coupon": {
+      "redeem": "Redeem voucher"
+    },
+    "confirmationPage": {
+      "order": {
+        "successMessage": "You will receive an email with the order confirmation and your payment slip in the next few minutes. As soon as the payment has been successfully received, we will process your order immediately and send it as quickly as possible. Please note that shipping depends on the current availability of the respective item.",
+        "orderSummary": "Your order"
+      },
+      "createAccount": {
+        "title": "Create account & secure benefits",
+        "benefits": {
+          "expressCheckout": {
+            "title": "Express Checkout:",
+            "description": "All data already filled in, order with just one click"
+          },
+          "wishlist": {
+            "title": "Create wishlist:",
+            "description": "Find your favorite products again immediately"
+          },
+          "orderOverview": {
+            "title": "Order overview:",
+            "description": "Keep track of your orders"
+          },
+          "trackShipment": {
+            "title": "Track shipment:",
+            "description": "You can track the status of your delivery at any time"
+          }
+        }
+      },
+      "passwordValidation": {
+        "minLabel": "At least:",
+        "characters": "8 characters",
+        "number": "1 digit",
+        "letter": "1 letter",
+        "submitLabel": "Create customer account"
+      }
+    },
+    "availability": {
+      "sofortVersandfertig": "Ready to ship immediately",
+      "versandfertig1Bis2Werktage": "Ready to ship in 1-2 business days",
+      "versandfertig3Bis5Werktage": "Ready to ship in 3-5 business days",
+      "versandfertig5Bis7Werktage": "Ready to ship in 5-7 business days",
+      "versandfertig1Bis2Wochen": "Ready to ship in 1-2 weeks",
+      "nichtLieferbar": "Not available"
+    },
+    "error": {
+      "latinCharsOnly": "Please use only Latin letters, numbers and common special characters."
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "checkout": {
+    "loadingModal": {
+      "secureTransmission": "Vos données sont transmises de manière sécurisée.",
+      "redirecting": "Vous serez redirigé sous peu."
+    },
+    "payment": {
+      "secureEncrypted": "Sécurisé et crypté",
+      "methods": {
+        "6034": {
+          "description": "Payez rapidement et en toute sécurité via l'application TWINT."
+        },
+        "6012": {
+          "description": "Payez facilement et en toute sécurité par carte de crédit ou votre portefeuille (Apple Pay, Google Pay, etc.)."
+        },
+        "6019": {
+          "description": "Nous livrons immédiatement et vous payez plus tard. Vous recevrez la facture par e-mail de POWERPAY."
+        },
+        "6010": {
+          "description": "Vous payez d'abord, ensuite nous expédions votre commande. Vous recevrez la facture par e-mail."
+        },
+        "6025": {
+          "description": "Payez rapidement et en toute sécurité avec votre compte PayPal."
+        }
+      },
+      "defaultDescription": "Payez avec {name}. Votre paiement sera traité en toute sécurité."
+    },
+    "coupon": {
+      "redeem": "Utiliser un bon"
+    },
+    "confirmationPage": {
+      "order": {
+        "successMessage": "Vous recevrez un e-mail avec la confirmation de commande et votre bulletin de versement dans les prochaines minutes. Dès réception du paiement, nous traiterons votre commande immédiatement et l'expédierons dans les plus brefs délais. Veuillez noter que l'expédition dépend de la disponibilité actuelle de l'article respectif.",
+        "orderSummary": "Votre commande"
+      },
+      "createAccount": {
+        "title": "Créer un compte et profiter des avantages",
+        "benefits": {
+          "expressCheckout": {
+            "title": "Paiement express:",
+            "description": "Toutes les données déjà remplies, commandez en un seul clic"
+          },
+          "wishlist": {
+            "title": "Créer une liste de souhaits:",
+            "description": "Retrouvez immédiatement vos produits préférés"
+          },
+          "orderOverview": {
+            "title": "Vue d'ensemble des commandes:",
+            "description": "Gardez une vue d'ensemble de vos commandes"
+          },
+          "trackShipment": {
+            "title": "Suivre l'envoi:",
+            "description": "Vous pouvez suivre l'état de votre livraison à tout moment"
+          }
+        }
+      },
+      "passwordValidation": {
+        "minLabel": "Au moins:",
+        "characters": "8 caractères",
+        "number": "1 chiffre",
+        "letter": "1 lettre",
+        "submitLabel": "Créer un compte client"
+      }
+    },
+    "availability": {
+      "sofortVersandfertig": "Prêt à expédier immédiatement",
+      "versandfertig1Bis2Werktage": "Prêt à expédier en 1-2 jours ouvrables",
+      "versandfertig3Bis5Werktage": "Prêt à expédier en 3-5 jours ouvrables",
+      "versandfertig5Bis7Werktage": "Prêt à expédier en 5-7 jours ouvrables",
+      "versandfertig1Bis2Wochen": "Prêt à expédier en 1-2 semaines",
+      "nichtLieferbar": "Non disponible"
+    }
+  }
+}

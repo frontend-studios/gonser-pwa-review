@@ -1,0 +1,98 @@
+<template>
+  <div ref="reviewArea" class="relative col-span-5 h-fit" :class="{ 'pointer-events-none opacity-50': loadingReviews }">
+    <SfLoaderCircular v-if="loadingReviews" class="absolute top-[130px] right-0 left-0 m-auto z-[999]" size="2xl" />
+
+    <div id="customerReviewsAccordion" data-testid="reviews-accordion">
+      <UiAccordionItem
+        v-model="reviewsOpen"
+        summary-class="md:rounded-md w-full hover:bg-neutral-100 py-2 pl-0 pr-3 flex justify-between items-center select-none"
+        content-padding-class="py-2 px-0"
+      >
+        <template #summary>
+          <h3 id="customerReviewsClick">
+            {{ t('product.customerReviews') }}
+          </h3>
+        </template>
+
+        <UiReviewStatistics :product="product" />
+
+        <UiReview v-for="(reviewItem, key) in authenticatedProductReviews" :key="key" :review-item="reviewItem" />
+        <UiReview v-for="(reviewItem, key) in paginatedProductReviews" :key="key" :review-item="reviewItem" />
+        <p
+          v-if="paginatedProductReviews.length === 0"
+          data-testid="no-review-text"
+          class="font-bold leading-6 w-full py-2"
+        >
+          {{ t('product.noReviews') }}
+        </p>
+        <UiPagination
+          v-if="paginatedProductReviews.length > 0"
+          :key="pagination.totalCount"
+          :current-page="currentPage"
+          :total-items="pagination.totalCount"
+          :page-size="config.defaultItemsPerPage"
+          :max-visible-pages="maxVisiblePages"
+          current-page-name="feedbackPage"
+        />
+      </UiAccordionItem>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { productGetters, reviewGetters } from '@plentymarkets/shop-api';
+import { SfLoaderCircular } from '@storefront-ui/vue';
+import type { ProductAccordionPropsType } from '~/components/ReviewsAccordion/types';
+
+const props = defineProps<ProductAccordionPropsType>();
+const { currentProduct } = useProducts();
+
+const viewport = useViewport();
+const reviewsOpen = ref(true);
+const route = useRoute();
+
+const config = useRuntimeConfig().public;
+
+const product = computed(() => props.product || currentProduct.value);
+const productId = computed(() => {
+  const id = productGetters.getItemId(product.value);
+  return id ? Number(id) : 0;
+});
+const productVariationId = computed(() => productGetters.getVariationId(product.value));
+
+const {
+  data: productReviews,
+  authenticatedData: productAuthenticatedReviews,
+  loading: loadingReviews,
+  fetchReviews,
+  fetchAuthenticatedReviews,
+  reviewArea,
+} = useProductReviews(productId.value, productVariationId.value);
+
+const paginatedProductReviews = computed(() => reviewGetters.getReviewItems(productReviews.value));
+const authenticatedProductReviews = computed(() => reviewGetters.getReviewItems(productAuthenticatedReviews.value));
+const pagination = computed(() => reviewGetters.getReviewPagination(productReviews.value));
+const currentPage = computed(() => reviewGetters.getCurrentReviewsPage(productReviews.value));
+
+const maxVisiblePages = computed(() => (viewport.isGreaterOrEquals('lg') ? 5 : 2));
+
+watch([productId, productVariationId], async ([newId, newVariationId], [oldId, oldVariationId]) => {
+  if ((newId !== oldId || newVariationId !== oldVariationId) && newId > 0)
+    await Promise.all([fetchReviews(), fetchAuthenticatedReviews()]);
+});
+
+watch(
+  () => reviewsOpen.value,
+  async (value) => {
+    if (value) await Promise.all([fetchReviews(), fetchAuthenticatedReviews()]);
+  },
+);
+
+watch(
+  () => route.query.feedbackPage,
+  async () => {
+    await fetchReviews();
+    if (reviewArea.value) reviewArea.value.scrollIntoView({ behavior: 'smooth' });
+  },
+);
+</script>

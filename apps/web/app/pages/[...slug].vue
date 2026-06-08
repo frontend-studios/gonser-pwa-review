@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { categoryGetters, categoryTreeGetters } from '@plentymarkets/shop-api';
+import { breadcrumbGetters, categoryGetters } from '@plentymarkets/shop-api';
 import type { Locale } from '#i18n';
 import { SfLoaderCircular } from '@storefront-ui/vue';
 
@@ -30,9 +30,8 @@ const route = useRoute();
 const router = useRouter();
 const { setCategoriesPageMeta } = useUrlPageMeta();
 const { setBlocksListContext } = useBlocksList();
-const { getFacetsFromURL, checkFiltersInURL } = useCategoryFilter();
-const { fetchProducts, data: productsCatalog, loading } = useProducts();
-const { data: categoryTree } = useCategoryTree();
+const { getFacetsFromURL } = useCategoryFilter();
+const { data: productsCatalog, loading } = useProducts();
 const { buildCategoryLanguagePath } = useLocalization();
 
 const identifier = computed(() =>
@@ -48,24 +47,15 @@ definePageMeta({
 });
 
 const breadcrumbs = computed(() => {
-  if (productsCatalog.value.category) {
-    const breadcrumb = categoryTreeGetters.generateBreadcrumbFromCategory(
-      categoryTree.value,
-      categoryGetters.getId(productsCatalog.value.category),
-    );
-    breadcrumb.unshift({ name: t('common.labels.home'), link: '/' });
+  const breadcrumb = breadcrumbGetters.mapFromCategoryBreadcrumbs(productsCatalog.value.breadcrumbs ?? []);
+  breadcrumb.unshift({ name: t('common.labels.home'), link: '/' });
 
-    return breadcrumb;
-  }
-
-  return [];
+  return breadcrumb;
 });
 
 const canonicalDb = productsCatalog.value.category?.details?.[0]?.canonicalLink;
 
 const handleQueryUpdate = async () => {
-  await fetchProducts(getFacetsFromURL()).then(() => checkFiltersInURL());
-
   if (!productsCatalog.value.category) {
     throw createError({
       statusCode: 404,

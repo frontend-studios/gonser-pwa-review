@@ -10,6 +10,7 @@
       <div class="absolute left-1/2 transform -translate-x-1/2 flex space-x-2">
         <UiLanguageEditor />
         <UiPageSelector />
+        <UiToolbarDeviceToggle />
       </div>
       <div class="ml-auto flex space-x-2">
         <button
@@ -77,30 +78,7 @@ const { hasChanges: localizationHasChanges } = useEditorLocalizationKeys();
 const { isEditing, isEditingEnabled, disableActions } = useEditor();
 const { isDrawerOpen } = useDrawerState();
 
-const route = useRoute();
-const initial = shallowRef(
-  useBlockTemplates(
-    String(route.meta?.identifier ?? ''),
-    String(route.meta?.type ?? ''),
-    useNuxtApp().$i18n.locale.value,
-  ),
-);
-
-watch(
-  () => [route.meta?.identifier, route.meta?.type],
-  () => {
-    initial.value = useBlockTemplates(
-      String(route.meta?.identifier ?? ''),
-      String(route.meta?.type ?? ''),
-      useNuxtApp().$i18n.locale.value,
-    );
-  },
-  { immediate: true },
-);
-
-const data = computed(() => initial.value.data.value);
-const loading = computed(() => initial.value.loading.value);
-const cleanData = computed(() => initial.value.cleanData.value);
+const { data, cleanData, loading, isSettling } = useBlocks();
 
 const { closeDrawer } = useSiteConfiguration();
 const { settingsIsDirty, loading: settingsLoading } = useSiteSettings();
@@ -124,7 +102,8 @@ const drawerZIndexClass = computed(() => (isDrawerOpen.value ? 'lg:z-20 md:z-10'
 
 watch(
   () => data.value,
-  async () => {
+  () => {
+    if (isSettling.value) return;
     isEditingEnabled.value = !deepEqual(cleanData.value, data.value);
   },
   { deep: true },

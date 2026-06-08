@@ -1,0 +1,119 @@
+{
+  "checkout": {
+    "loadingModal": {
+      "secureTransmission": "Deine Daten werden verschlüsselt übermittelt.",
+      "redirecting": "Du wirst sofort weitergeleitet."
+    },
+    "payment": {
+      "secureEncrypted": "DE Sicher & verschlüsselt",
+      "methods": {
+        "6034": {
+          "description": "Zahle schnell und sicher über die TWINT App."
+        },
+        "6012": {
+          "description": "Zahle einfach und sicher mit Kreditkarte oder deinem Wallet (Apple Pay, Google Pay, etc.).",
+          "icons": [
+            {
+              "src": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/Payment/CreditCard/visa.svg",
+              "alt": "Visa"
+            },
+            {
+              "src": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/Payment/CreditCard/mastercard.svg",
+              "alt": "Mastercard"
+            },
+            {
+              "src": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/Payment/CreditCard/ga-pay.svg",
+              "alt": "Google Pay"
+            },
+            {
+              "src": "https://cdn02.plentymarkets.com/mrt54q44tptl/frontend/Payment/CreditCard/creditcard.svg",
+              "alt": "Kreditkarte"
+            }
+          ]
+        },
+        "6019": {
+          "description": "Wir liefern sofort und du bezahlst später. Die Rechnung erhältst du per E-Mail von POWERPAY."
+        },
+        "6010": {
+          "description": "Du bezahlst zuerst, danach versenden wir deine Bestellung. Die Rechnung erhältst du per E-Mail."
+        },
+        "6025": {
+          "description": "Zahle schnell und sicher mit deinem PayPal Konto."
+        }
+      },
+      "defaultDescription": "Mit {name} bezahlen. Ihre Zahlung wird sicher verarbeitet."
+    },
+    "coupon": {
+      "redeem": "Gutschein einlösen",
+      "placeholder": "Code eingeben"
+    },
+    "confirmationPage": {
+      "order": {
+        "successMessage": "In den nächsten Minuten erhältst du eine E-Mail mit der Auftragsbestätigung und deinem Einzahlungsschein. Sobald die Zahlung erfolgreich bei uns eingegangen ist, werden wir deine Bestellung umgehend bearbeiten und schnellstmöglich versenden. Bitte beachte, dass sich der Versand nach der aktuellen Verfügbarkeit des jeweiligen Artikels richtet.",
+        "orderSummary": "Deine Bestellung"
+      },
+      "createAccount": {
+        "title": "Konto anlegen & Vorteile sichern",
+        "benefits": {
+          "expressCheckout": {
+            "title": "Express Checkout:",
+            "description": "Alle Daten bereits ausgefüllt, bestellen nur mit einem Klick"
+          },
+          "wishlist": {
+            "title": "Wunschliste erstellen:",
+            "description": "Finde deine Lieblingsprodukte sofort wieder"
+          },
+          "orderOverview": {
+            "title": "Auftragsübersicht:",
+            "description": "Behalte den Überblick über deine Bestellungen"
+          },
+          "trackShipment": {
+            "title": "Sendung verfolgen:",
+            "description": "Du kannst den Status deiner Lieferung jederzeit verfolgen"
+          }
+        }
+      },
+      "passwordValidation": {
+        "minLabel": "Mindestens:",
+        "characters": "8 Zeichen",
+        "number": "1 Ziffer",
+        "letter": "1 Buchstabe",
+        "submitLabel": "Kundenkonto erstellen"
+      },
+      "orderConfirmation": {
+        "summary": "Summe",
+        "itemValue": "Warenwert",
+        "totalAmount": "Gesamtsumme"
+      },
+      "orderDetails": {
+        "orderId": "Auftrags-ID",
+        "yourItems": "Deine Artikel"
+      }
+    },
+    "availability": {
+      "sofortVersandfertig": "Sofort versandfertig",
+      "versandfertig1Bis2Werktage": "Versandfertig in 1-2 Werktagen",
+      "versandfertig3Bis5Werktage": "Versandfertig in 3-5 Werktagen",
+      "versandfertig5Bis7Werktage": "Versandfertig in 5-7 Werktagen",
+      "versandfertig1Bis2Wochen": "Versandfertig in 1-2 Wochen",
+      "nichtLieferbar": "Nicht lieferbar"
+    },
+    "error": {
+      "latinCharsOnly": "Bitte verwenden Sie nur lateinische Buchstaben, Zahlen und gängige Sonderzeichen."
+    },
+    "addressForm": {
+      "privatePerson": "Privatperson"
+    },
+    "contactInformation": {
+      "existingCustomer": "Ich bin bereits Kunde",
+      "guest": "Ich bin Gast"
+    },
+    "backToHome": "Startseite",
+    "cartHeadline": "Mein Warenkorb",
+    "checkoutHeadline": "Kasse",
+    "plzPlaceholder": "PLZ *",
+    "streetPlaceholder": "Strasse *",
+    "yourItems": "Deine Artikel",
+    "orderNow": "Jetzt kaufen"
+  }
+}
